@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
 
-:root { color: #27251f; background: #f7f3ec; font-family: 'DM Sans', sans-serif; font-synthesis: none; }
+:root { color: #fff; background: #000; font-family: 'DM Sans', sans-serif; font-synthesis: none; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; }
+body { background: #000; margin: 0; }
 button, input { font: inherit; }
 button, a { color: inherit; }
 button { cursor: pointer; }
-.app { overflow: hidden; }
-.topbar { align-items: center; display: flex; height: 80px; justify-content: space-between; margin: auto; max-width: 1240px; padding: 0 32px; }
+.app { background: #000; overflow: hidden; }
+.topbar { align-items: center; background: #000; color: #fff; display: flex; height: 80px; justify-content: space-between; margin: auto; max-width: 1240px; padding: 0 32px; }
 .brand { align-items: center; display: flex; font-size: 21px; font-weight: 600; gap: 9px; letter-spacing: -.06em; text-decoration: none; }
 .brand-mark { align-items: center; background: #d56b4f; border-radius: 50%; color: white; display: flex; font-family: Georgia, serif; font-size: 18px; height: 29px; justify-content: center; letter-spacing: 0; width: 29px; }
 nav { display: flex; gap: 35px; margin-left: 100px; } nav a { font-size: 13px; text-decoration: none; } nav a:hover { color: #d56b4f; }
@@ -25,20 +25,47 @@ h1, h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; lett
 @media (max-width: 700px) { .topbar { padding: 0 20px; } nav { display: none; }.hero { grid-template-columns: 1fr; padding: 48px 20px 72px; }.hero-copy { padding: 0; }.hero-art { margin-top: 55px; min-height: 330px; }.menu-section { padding: 70px 20px; }.section-heading { align-items: flex-start; flex-direction: column; gap: 28px; }.food-grid { gap: 28px 15px; grid-template-columns: repeat(2, 1fr); }.food-image { height: 180px; }.food-title h3 { font-size: 17px; }.food-info p { font-size: 12px; }.search { width: 100%; } footer { align-items: flex-start; flex-direction: column; gap: 8px; } footer p { margin: 2px 0; }.cart { padding: 30px 22px; } }
 
 /* Landing page treatment: image, quote, Nebraska prairie palette. */
-.landing-hero { display: flex; isolation: isolate; min-height: 690px; overflow: hidden; padding: 0 max(32px, calc((100vw - 1176px) / 2)); position: relative; }
+.landing-hero { background: #000; display: flex; isolation: isolate; margin-left: 0; margin-right: 0; max-width: none; min-height: calc(100svh - 80px); overflow: hidden; padding: 0 max(32px, calc((100vw - 1176px) / 2)); position: relative; width: 100%; }
 .landing-photo, .landing-overlay { inset: 0; height: 100%; position: absolute; width: 100%; }
-.landing-photo { object-fit: cover; z-index: -2; }
-.landing-overlay { background: linear-gradient(90deg, #18281bd9 0%, #24332499 44%, #24332428 100%); z-index: -1; }
-.landing-hero .hero-copy { align-self: center; color: #fffdf9; max-width: 510px; padding-left: 4%; z-index: 1; }
+.landing-photo { object-fit: cover; opacity: .82; z-index: 0; }
+.landing-overlay { background: linear-gradient(90deg, #18281dd9 0%, #24332499 44%, #24332428 100%), linear-gradient(180deg, transparent 48%, #0002 60%, #000b 76%, #000 100%); z-index: 1; }
+.landing-hero::after { background: linear-gradient(180deg, transparent 0%, #000 100%); bottom: 0; content: ''; height: 30%; left: 0; pointer-events: none; position: absolute; right: 0; z-index: 1; }
+.landing-hero .hero-copy { align-self: center; color: #fffdf9; max-width: 510px; padding-left: 4%; z-index: 2; }
 .landing-hero .eyebrow { color: #f0c78f; }
 .landing-hero h1 { font-size: clamp(68px, 10vw, 132px); }
 .landing-hero h1 em { color: #f0c78f; }
 .landing-hero .hero-text { color: #fffdf9d9; font-size: 17px; }
 .landing-hero .primary-link { border-color: #f0c78f; }
-.cather-quote { align-self: flex-end; color: #fffdf9; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(20px, 2.3vw, 31px); line-height: 1.25; margin: 0 0 85px auto; max-width: 390px; padding: 22px 0 0 30px; position: relative; z-index: 1; }
+.cather-quote { align-self: flex-end; color: #fffdf9; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(20px, 2.3vw, 31px); line-height: 1.25; margin: 0 0 85px auto; max-width: 390px; padding: 22px 0 0 30px; position: relative; z-index: 2; }
 .cather-quote:before { background: #f0c78f; content: ''; height: 1px; left: 30px; position: absolute; top: 0; width: 64px; }
 .cather-quote cite { display: block; font-family: 'DM Sans', sans-serif; font-size: 11px; font-style: normal; letter-spacing: .08em; margin-top: 18px; opacity: .78; text-transform: uppercase; }
-.photo-credit { bottom: 20px; color: #fffdf9b8; font-size: 10px; letter-spacing: .04em; margin: 0; position: absolute; right: max(32px, calc((100vw - 1176px) / 2)); z-index: 1; }
+.photo-credit { bottom: 20px; color: #fffdf9b8; font-size: 10px; letter-spacing: .04em; margin: 0; position: absolute; right: max(32px, calc((100vw - 1176px) / 2)); z-index: 2; }
 .brand { max-width: 210px; }
 .brand > span:last-child { line-height: 1.05; }
-@media (max-width: 700px) { .landing-hero { min-height: 720px; padding: 0 20px; }.landing-hero .hero-copy { align-self: flex-start; padding: 100px 0 0; }.landing-hero .hero-text { max-width: 270px; }.cather-quote { align-self: flex-end; margin: 0 0 78px; padding-left: 0; }.cather-quote:before { left: 0; }.photo-credit { bottom: 16px; left: 20px; right: 20px; } }
+@media (max-width: 700px) { .landing-hero { min-height: calc(100svh - 80px); padding: 0 20px; }.landing-hero .hero-copy { align-self: flex-start; padding: 100px 0 0; }.landing-hero .hero-text { max-width: 270px; }.cather-quote { align-self: flex-end; margin: 0 0 78px; padding-left: 0; }.cather-quote:before { left: 0; }.photo-credit { bottom: 16px; left: 20px; right: 20px; } }
+
+/* Nebraska Table dark theme. */
+.menu-section, .story { background: #000; color: #fff; }
+.menu-section { border-top: 1px solid #292929; }
+.menu-section .eyebrow, .story .eyebrow, .food-title span, .tags span, .primary-link { color: #f4c542; }
+.menu-section .search { border-color: #555; color: #f4c542; }
+.search input { color: #fff; }
+.search input::placeholder { color: #8f8f8f; }
+.filters button { background: #191919; color: #bdbdbd; }
+.filters button.active, .filters button:hover { background: #f4c542; color: #000; }
+.food-info p, .empty { color: #b5b5b5; }
+.food-title h3, .cart-item h3 { color: #fff; }
+.add-button { background: #f4c542; color: #000; }
+.add-button:hover { background: #fff; color: #000; }
+.story { border-top: 1px solid #292929; }
+.story .eyebrow, .story h2 em { color: #f4c542; }
+footer { background: #000; color: #fff; }
+footer p { color: #9f9f9f; }
+.brand-mark { background: #f4c542; color: #000; }
+.primary-link { border-color: #f4c542; }
+.cart { background: #0b0b0b; color: #fff; }
+.cart-item { border-color: #333; }
+.cart-item p, .cart-total strong { color: #f4c542; }
+.cart-total { border-color: #fff; }
+.quantity button { background: #242424; color: #fff; }
+.checkout, .cart-empty button { background: #f4c542; color: #000; }
